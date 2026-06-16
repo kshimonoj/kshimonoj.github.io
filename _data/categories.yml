@@ -1,0 +1,8 @@
+wifi:
+  label: "Wi-Fi"
+auto:
+  label: "Automation"
+app:
+  label: "App"
+ai:
+  label: "AI / MCP"

@@ -1,0 +1,41 @@
+- name: Wi-Fi Analyzer
+  desc: Mist / Aruba Central対応のAndroidサイトサーベイアプリ。フロアマップ・ヒートマップ・GPS記録に対応。
+  tech: [Android, Kotlin, Mist API]
+  url: https://github.com/kshimonoj/wifi-analyzer-mist-central
+  icon: "📶"
+  icon_class: icon-wifi
+
+- name: Mist RF Dashboard
+  desc: Juniper MistのSLE・クライアント統計をリアルタイム可視化するNext.js + FastAPIダッシュボード。
+  tech: [Next.js, FastAPI, SQLite]
+  url: https://github.com/kshimonoj/mist-rf-dashboard
+  icon: "📊"
+  icon_class: icon-net
+
+- name: ContainerLab GUI
+  desc: AOS-CX / vJunosを動かすContainerLabのWebベースGUI。WebSocketターミナル・トポロジーエディタ付き。
+  tech: [FastAPI, Cytoscape.js, xterm.js]
+  url: https://github.com/kshimonoj/container-lab
+  icon: "🔬"
+  icon_class: icon-lab
+
+- name: Speedtest Leaderboard
+  desc: ネットワークデモ向けのスピードテスト計測＆ランキング表示アプリ。Node.js + SQLite製。
+  tech: [Node.js, SQLite]
+  url: https://github.com/kshimonoj/speedtest
+  icon: "🚀"
+  icon_class: icon-speed
+
+- name: Mist Menubar App
+  desc: macOSメニューバーからMistのSLE・デバイス状態・アラートを確認できるTauriアプリ。
+  tech: [Tauri, Rust, React]
+  url: https://github.com/kshimonoj/mist-menubar-app
+  icon: "🖥"
+  icon_class: icon-tauri
+
+- name: Aruba Central Streaming Dashboard
+  desc: Aruba CentralのStreaming APIをWebSocket経由で受信し、AP MonitoringとAudit Trailをリアルタイム表示。Protobufデコード・OAuth2自動更新対応。
+  tech: [Next.js, FastAPI, WebSocket, Protobuf]
+  url: https://github.com/kshimonoj/aruba-dashboard
+  icon: "📡"
+  icon_class: icon-mcp

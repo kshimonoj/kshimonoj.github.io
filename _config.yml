@@ -3,6 +3,8 @@ description: Network Engineer — HPE / Aruba · Juniper Mist
 url: "https://kshimonoj.github.io"
 baseurl: ""
 lang: ja
+author: Keita Shimono
+twitter_username: ""
 permalink: /blog/:year/:month/:day/:title/
 
 markdown: kramdown
