@@ -8,6 +8,9 @@ permalink: /blog/:year/:month/:day/:title/
 markdown: kramdown
 highlighter: rouge
 
+plugins:
+  - jekyll-feed
+
 exclude:
   - Gemfile
   - Gemfile.lock
