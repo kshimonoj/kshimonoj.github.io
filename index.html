@@ -1,0 +1,136 @@
+---
+layout: default
+---
+
+<section class="hero">
+  <div class="avatar">KS</div>
+  <div class="hero-text">
+    <h1>Keita Shimono</h1>
+    <p class="role">Network Sales Engineer — HPE / Aruba · Juniper Mist</p>
+    <div class="tags">
+      <span class="tag">Wi-Fi</span>
+      <span class="tag">Network Automation</span>
+      <span class="tag">API / MCP</span>
+      <span class="tag">AI for Network Engineers</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <h2 class="section-title">プロジェクト</h2>
+  <div class="project-grid">
+
+    <div class="project-card">
+      <div class="card-header">
+        <div class="card-icon icon-wifi">📶</div>
+        <span class="card-title">Wi-Fi Analyzer</span>
+      </div>
+      <p class="card-desc">Mist / Aruba Central対応のAndroidサイトサーベイアプリ。フロアマップ・ヒートマップ・GPS記録に対応。</p>
+      <div class="card-footer">
+        <div class="card-tech">
+          <span class="tech-badge">Android</span>
+          <span class="tech-badge">Kotlin</span>
+          <span class="tech-badge">Mist API</span>
+        </div>
+        <a class="card-link" href="https://github.com/kshimonoj/wifi-analyzer-mist-central" target="_blank" rel="noopener">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-header">
+        <div class="card-icon icon-net">📊</div>
+        <span class="card-title">Mist RF Dashboard</span>
+      </div>
+      <p class="card-desc">Juniper MistのSLE・クライアント統計をリアルタイム可視化するNext.js + FastAPIダッシュボード。</p>
+      <div class="card-footer">
+        <div class="card-tech">
+          <span class="tech-badge">Next.js</span>
+          <span class="tech-badge">FastAPI</span>
+          <span class="tech-badge">SQLite</span>
+        </div>
+        <a class="card-link" href="https://github.com/kshimonoj/mist-rf-dashboard" target="_blank" rel="noopener">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-header">
+        <div class="card-icon icon-lab">🔬</div>
+        <span class="card-title">ContainerLab GUI</span>
+      </div>
+      <p class="card-desc">AOS-CX / vJunosを動かすContainerLabのWebベースGUI。WebSocketターミナル・トポロジーエディタ付き。</p>
+      <div class="card-footer">
+        <div class="card-tech">
+          <span class="tech-badge">FastAPI</span>
+          <span class="tech-badge">Cytoscape.js</span>
+          <span class="tech-badge">xterm.js</span>
+        </div>
+        <a class="card-link" href="https://github.com/kshimonoj/container-lab" target="_blank" rel="noopener">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-header">
+        <div class="card-icon icon-speed">🚀</div>
+        <span class="card-title">Speedtest Leaderboard</span>
+      </div>
+      <p class="card-desc">ネットワークデモ向けのスピードテスト計測＆ランキング表示アプリ。Node.js + SQLite製。</p>
+      <div class="card-footer">
+        <div class="card-tech">
+          <span class="tech-badge">Node.js</span>
+          <span class="tech-badge">SQLite</span>
+        </div>
+        <a class="card-link" href="https://github.com/kshimonoj/speedtest" target="_blank" rel="noopener">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-header">
+        <div class="card-icon icon-tauri">🖥</div>
+        <span class="card-title">Mist Menubar App</span>
+      </div>
+      <p class="card-desc">macOSメニューバーからMistのSLE・デバイス状態・アラートを確認できるTauriアプリ。</p>
+      <div class="card-footer">
+        <div class="card-tech">
+          <span class="tech-badge">Tauri</span>
+          <span class="tech-badge">Rust</span>
+          <span class="tech-badge">React</span>
+        </div>
+        <a class="card-link" href="https://github.com/kshimonoj/mist-menubar-app" target="_blank" rel="noopener">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="card-header">
+        <div class="card-icon icon-mcp">🔌</div>
+        <span class="card-title">Aruba Central MCP</span>
+      </div>
+      <p class="card-desc">Aruba CentralをMCP対応させ、ClaudeからネットワークAPIを自然言語で操作できるようにするサーバー。</p>
+      <div class="card-footer">
+        <div class="card-tech">
+          <span class="tech-badge">Python</span>
+          <span class="tech-badge">MCP</span>
+          <span class="tech-badge">Central API</span>
+        </div>
+        <a class="card-link" href="https://github.com/kshimonoj/aruba-dashboard" target="_blank" rel="noopener">GitHub →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="blog">
+  <h2 class="section-title">ブログ <a href="/blog" class="see-all">すべて見る →</a></h2>
+  <div class="blog-grid">
+    {% assign recent_posts = site.posts | limit: 4 %}
+    {% for post in recent_posts %}
+    <div class="blog-card">
+      <div class="blog-meta">
+        <span class="blog-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <span class="blog-category cat-{{ post.category }}">{{ post.category_label }}</span>
+      </div>
+      <p class="blog-title"><a href="{{ post.url }}">{{ post.title }}</a></p>
+      <p class="blog-excerpt">{{ post.excerpt | strip_html | truncate: 80 }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>

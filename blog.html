@@ -1,0 +1,17 @@
+---
+layout: default
+title: ブログ
+---
+
+<section class="section">
+  <h2 class="section-title">ブログ</h2>
+  <div class="blog-list">
+    {% for post in site.posts %}
+    <div class="blog-list-item">
+      <span class="blog-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      <span class="blog-category cat-{{ post.category }}">{{ post.category_label }}</span>
+      <a href="{{ post.url }}" class="blog-list-title">{{ post.title }}</a>
+    </div>
+    {% endfor %}
+  </div>
+</section>

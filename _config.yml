@@ -1,0 +1,15 @@
+title: kshimonoj
+description: Network Engineer — HPE / Aruba · Juniper Mist
+url: "https://kshimonoj.github.io"
+baseurl: ""
+lang: ja
+permalink: /blog/:year/:month/:day/:title/
+
+markdown: kramdown
+highlighter: rouge
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - instructions
