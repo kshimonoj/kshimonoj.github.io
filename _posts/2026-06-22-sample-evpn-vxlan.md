@@ -11,7 +11,8 @@ ContainerLab で EVPN-VXLAN を検証したときのメモ。
 - BGP neighbor に `send-community extended` が必須
 - これが無いと Type-3 ルートは届くが RT で import できず VTEP が張れない
   構成図
-  ![Pasted image 20260622152356](/assets/images/Pasted%20image%2020260622152356.png)
+  ![Pasted image 20260622154800](/assets/images/Pasted%20image%2020260622154800.png)
+
 
 
 （画像サンプル: Obsidian記法のまま書いてOK。Publish時に変換される）
