@@ -194,6 +194,11 @@ main {
   padding: 2px 5px; border-radius: 4px;
 }
 .post-body pre code { background: none; padding: 0; }
+.post-body img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 
 /* Footer */
 .site-footer {
