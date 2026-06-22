@@ -3,6 +3,7 @@ layout: post
 title: ContainerLabとMCP ServerでClaudeからSwitch設定
 date: 2026-06-22
 category: auto
+repo: https://github.com/kshimonoj/container-lab
 ---
 ## 目的
 今回の目的は大きく2つ
