@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MistのSLEをMacbookのメニューバーアップで常に確認"
+title: "MistのSLEをMacbookのメニューバーAppで常に確認"
 date: 2026-06-22
 category: auto
 repo: https://github.com/kshimonoj/mist-menubar-app
