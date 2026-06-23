@@ -55,3 +55,12 @@ MCPサーバとClaudeとの接続全体像
 今回は、FastMCP の MCP Server がベンダ差を吸収し、AOS-CX は REST、vJunos は NETCONF に変換して実行している。
 
 ![mcp-switch-protocol](/assets/images/mcp-switch-protocol.png)
+
+### 補足
+もっとシンプルな環境でも試しています。
+AOS-CX, Junos Switchが１台ずつで、OSPFのルーティングをMCP経由でしています。
+#### デモのトポロジ
+![clab-mcp-ospf-demo-topology](/assets/images/clab-mcp-ospf-demo-topology.png)
+
+#### デモ動画
+<iframe width="560" height="315" src="https://www.youtube.com/embed/e3JAAyjVO2A?si=Spb6d1KrxGalLLv9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
