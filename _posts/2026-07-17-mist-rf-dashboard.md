@@ -112,6 +112,59 @@ AP・クライアントの両方に自由なタグを付けられる。専用の
 
 複数のMist Organization（顧客・拠点ごとなど）を登録しておき、Settings画面から切り替えられる。切り替えは コンテナの再起動不要。切り替え時に蓄積データをクリアするかどうかも選べる。
 
-## まとめ
+---
+
+# 【参考】使用したMist APIについて
+
+## 組織・サイト情報系
+
+| エンドポイント                             | 用途                                        |
+| ----------------------------------- | ----------------------------------------- |
+| `GET /orgs/{org_id}/sites`          | サイト一覧の取得                                  |
+| `GET /orgs/{org_id}/rftemplates`    | RF Template一覧（Radio設定がどの階層で決まっているかの判定に使用） |
+| `GET /orgs/{org_id}/deviceprofiles` | Device Profile一覧（同上）                      |
+| `GET /sites/{site_id}/setting`      | サイト設定（RF Templateの紐付け確認）                  |
+
+Radio設定（チャネル・帯域幅・送信電力）は、AP・Device Profile・RF Template・Orgのどこで設定されて いるかがバンドごとに異なる。この4つのAPIを組み合わせて突き合わせることで、「このAPのこのバンドは 今どの階層の設定が効いているか」を判定できる。
+
+## AP関連
+
+|エンドポイント|用途|
+|---|---|
+|`GET /sites/{site_id}/devices?type=ap&limit=1000`|AP設定情報の一括取得|
+|`GET /sites/{site_id}/devices/{ap_id}`|AP1台分の設定詳細|
+|`GET /sites/{site_id}/stats/devices?type=ap`|AP実測値（チャネル利用率・ノイズフロア・送信電力など）|
+|`GET /sites/{site_id}/devices/events/search?duration=`|APイベント（再起動・DFS検知など）|
+
+`devices` の一括取得は `limit=1000` を指定すると `X-Page-Total` ヘッダーでページネーションが 正常に機能する。250台規模のAP環境でも、AP1台ずつ個別にAPIを叩く必要がなく、数回のコールで全AP分の 情報を取得できた。
+
+## クライアント関連
+
+|エンドポイント|用途|
+|---|---|
+|`GET /sites/{site_id}/stats/clients`|現在接続中の全クライアント一覧（RSSI/SNR/レート等の実測値付き）|
+|`GET /sites/{site_id}/clients/search`|クライアント接続履歴の検索|
+
+ここが一番ハマったポイントで、`stats/clients` は公式ドキュメントに `limit` や `ap_mac` といった クエリパラメータが記載されているが、**私の環境ではうまく効かず、常にサイト全体の全クライアントが返ってきた**。 MACアドレスの表記(コロンあり/なし/ハイフン区切り/Cisco形式)をいろいろ試したが結果は同じだった。うまくfilterできた方は教えてほしいです。
+
+一方 `clients/search` は `limit` も `ap_mac` フィルタも正常に機能する。ただしこちらはRSSI/SNRと いったリアルタイム実測値を含まない、過去の接続履歴を検索するためのAPIのようで、`total` が数万件に なることもあった。
+
+用途としては、「今何が起きているか」を見たいなら `stats/clients`、「いつ・どのAPに接続していたか」 を検索したいなら `clients/search`、という使い分けになる。
+
+## SLE（Service Level Experience）
+
+|エンドポイント|用途|
+|---|---|
+|`GET /sites/{site_id}/sle/site/{site_id}/metric/{metric}/summary?duration=`|サイト単位のSLE|
+|`GET /sites/{site_id}/sle/ap/{ap_id}/metric/{metric}/summary?duration=`|AP単位のSLE|
+|`GET /sites/{site_id}/sle/site/{site_id}/metric/{metric}/classifier/{classifier}/summary?duration=`|classifier単位の内訳詳細|
+
+`metric` には `capacity` / `throughput` / `coverage` / `time-to-connect` / `roaming` / `ap-availability` の6種類が指定できる。全てサイト単位・AP単位の両方で取得可能。
+
+`capacity` メトリクスは `classifiers` という配下に、スコアが低い要因を `wifi-interference`（Wi-Fi干渉）・`non-wifi-interference`（非Wi-Fi干渉）・`client-count` （クライアント過多）・`client-usage`（通信量過多）の4つに分解した内訳が入っている。 「スコアが低い」だけでなく「なぜ低いか」まで機械的に判定できるので、自動問題検知の実装に非常に 役立った。
+
+`duration` パラメータは `1h` のような短い単位だけでなく `30d` のような長期間もそのまま受け付けて くれる。ただし `interval` は常に固定（1時間粒度など）で、データが存在しない区間は `null` になる。
+
+# まとめ
 
 Mist Portal を置き換えるものではなく、「後から振り返りたい」「変更の効果を数値で見たい」 「複数拠点を行き来しながら使いたい」といった、自分の使い方に合わせて育ててきたツールです。 Mist APIを使って似たようなものを作りたい人の参考になれば幸いです。
