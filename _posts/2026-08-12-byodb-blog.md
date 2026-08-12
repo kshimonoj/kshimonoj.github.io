@@ -5,6 +5,7 @@ date: 2026-08-12
 category: ai
 repo: https://github.com/kshimonoj/multi-network-dashboard
 ---
+byodb-hero-embed.html
 
 Network Device の Cloud Management Dashboard は、多くの場合「最大公約数」に向けて作られています。
 
@@ -128,12 +129,4 @@ VIPユーザーの端末や重要拠点のAPなど、注視したい対象にだ
 
 Client と Device では見たい観点が違うため、画面も分けています。Client は接続品質やアプリケーション別トラフィック、Device は CPU/メモリ、PoE、ポート状態といった具合です。
 
-## まとめ — 2階建ての運用へ
-
-Custom Dashboard は、ベンダー標準ダッシュボードの代替ではありません。その上に乗る「自分専用の視点」です。
-
-土台として Vendor Cloud が telemetry を集約・正規化し、Vendor 独自の AI Agent が分析と最適化を行い、その結果をAPIで外部に提供する。BYODBはその上に、運用者が自分の見たいものだけを最短距離で見る画面を作る。AI がある今、この2階建ての構成は現実的なコストで手が届くようになりました。
-
-シリーズ全体は[再生リスト](https://www.youtube.com/playlist?list=PLQA3RWvztKO8)に、コードは [GitHub](https://github.com/kshimonoj/multi-network-dashboard) にまとめてあります。
-
-なお、動画・記事内のサイト名、IPアドレス、MACアドレス等はすべてラボ/検証環境のものです。本記事は個人の技術検証であり、HPE社の公式見解や製品サポートを示すものではありません。
+byodb-outro-embed.html
