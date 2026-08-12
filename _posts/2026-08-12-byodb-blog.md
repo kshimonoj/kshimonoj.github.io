@@ -1,11 +1,119 @@
 ---
 layout: post
-title: Bring Your Own Dashboard (BYODB) — 自分の視点を持ち込むネットワーク運用
+title: "Bring Your Own Dashboard (BYODB) — 自分の視点を持ち込むネットワーク運用"
 date: 2026-08-12
 category: ai
-repo: https://github.com/kshimonoj/multi-network-dashboard
+repo: kshimonoj/multi-network-dashboard
 ---
-byodb-hero-embed.html
+
+<!-- ============================================================
+     BYODB HERO — この記事の一番上、front matterの直後に貼り付け
+     クラス名は byodb- プレフィックスでスコープ済み。
+     サイト全体のCSSと衝突する場合はプレフィックスを変更してください。
+     ============================================================ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+.byodb-hero{
+  background:#121c26;
+  color:#fff;
+  position:relative;
+  overflow:hidden;
+  font-family:"Zen Kaku Gothic New",sans-serif;
+  /* 記事本文の幅制限を突き破ってフルブリードにする */
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  margin-top:0;
+  margin-bottom:2.5em;
+}
+.byodb-hero-inner{
+  max-width:1060px;margin:0 auto;
+  padding:80px 24px 72px;
+  position:relative;z-index:2;
+}
+.byodb-hero-eyebrow{
+  font-family:"IBM Plex Mono",monospace;
+  color:#48cfad;
+  font-size:13px;letter-spacing:.14em;
+  margin-bottom:22px;
+}
+.byodb-hero h1{
+  font-weight:900;
+  font-size:clamp(30px,5.4vw,56px);
+  line-height:1.22;
+  letter-spacing:.01em;
+  margin:0;
+  color:#fff;
+}
+.byodb-hero h1 .byodb-accent{color:#48cfad}
+.byodb-hero-sub{
+  margin-top:24px;
+  max-width:640px;
+  color:#c3d2d5;
+  font-size:16px;
+  line-height:1.9;
+}
+.byodb-hero-pipeline{
+  margin-top:40px;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:clamp(12px,2.2vw,15px);
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+}
+.byodb-hero-pipeline .byodb-node{
+  border:1px solid rgba(72,207,173,.55);
+  border-radius:8px;
+  padding:8px 16px;
+  background:rgba(72,207,173,.08);
+  color:#e6f2ef;
+}
+.byodb-hero-pipeline .byodb-node.byodb-hot{background:#48cfad;color:#121c26;font-weight:600;border-color:#48cfad}
+.byodb-hero-pipeline .byodb-arrow{color:#48cfad;opacity:.85}
+.byodb-hero svg.byodb-mesh{
+  position:absolute;inset:0;width:100%;height:100%;
+  opacity:.5;z-index:1;
+}
+@media (prefers-reduced-motion:no-preference){
+  .byodb-mesh .byodb-pulse{animation:byodb-pulse 5s ease-in-out infinite}
+  .byodb-mesh .byodb-pulse:nth-child(2n){animation-delay:1.4s}
+  .byodb-mesh .byodb-pulse:nth-child(3n){animation-delay:2.6s}
+  @keyframes byodb-pulse{0%,100%{opacity:.25}50%{opacity:.9}}
+}
+</style>
+
+<header class="byodb-hero">
+  <svg class="byodb-mesh" viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g stroke="#48cfad" stroke-width="1" opacity=".35">
+      <line x1="80" y1="120" x2="260" y2="60"/><line x1="260" y1="60" x2="420" y2="150"/>
+      <line x1="80" y1="120" x2="200" y2="300"/><line x1="200" y1="300" x2="420" y2="150"/>
+      <line x1="420" y1="150" x2="640" y2="90"/><line x1="640" y1="90" x2="860" y2="170"/>
+      <line x1="860" y1="170" x2="1060" y2="80"/><line x1="860" y1="170" x2="1010" y2="330"/>
+      <line x1="1010" y1="330" x2="1150" y2="450"/><line x1="200" y1="300" x2="380" y2="440"/>
+      <line x1="380" y1="440" x2="640" y2="380"/><line x1="640" y1="380" x2="860" y2="170"/>
+      <line x1="640" y1="380" x2="1010" y2="330"/><line x1="640" y1="90" x2="640" y2="380"/>
+      <line x1="380" y1="440" x2="120" y2="500"/>
+    </g>
+    <g fill="#48cfad">
+      <circle class="byodb-pulse" cx="80" cy="120" r="5"/><circle class="byodb-pulse" cx="260" cy="60" r="4"/>
+      <circle class="byodb-pulse" cx="420" cy="150" r="6"/><circle class="byodb-pulse" cx="200" cy="300" r="4"/>
+      <circle class="byodb-pulse" cx="640" cy="90" r="5"/><circle class="byodb-pulse" cx="860" cy="170" r="7"/>
+      <circle class="byodb-pulse" cx="1060" cy="80" r="4"/><circle class="byodb-pulse" cx="1010" cy="330" r="5"/>
+      <circle class="byodb-pulse" cx="380" cy="440" r="5"/><circle class="byodb-pulse" cx="640" cy="380" r="6"/>
+      <circle class="byodb-pulse" cx="1150" cy="450" r="4"/><circle class="byodb-pulse" cx="120" cy="500" r="4"/>
+    </g>
+  </svg>
+  <div class="byodb-hero-inner">
+    <div class="byodb-hero-eyebrow">NETWORK OPERATIONS × AI</div>
+    <h1>Bring Your Own <span class="byodb-accent">Dashboard</span></h1>
+    <p class="byodb-hero-sub">ベンダーの画面を「探し回る」のをやめて、自分の見たいものだけを最短距離で見る。AIがある今、それは現実的なコストで手が届くようになりました。BYODBという考え方と、実際に作ってみた一例を7本の動画で紹介します。</p>
+    <div class="byodb-hero-pipeline" aria-label="構成: Device から Vendor Cloud、そして BYODB へ">
+      <span class="byodb-node">Device</span><span class="byodb-arrow">──▶</span>
+      <span class="byodb-node">Vendor Cloud</span><span class="byodb-arrow">──▶</span>
+      <span class="byodb-node byodb-hot">BYODB</span>
+    </div>
+  </div>
+</header>
+
 
 Network Device の Cloud Management Dashboard は、多くの場合「最大公約数」に向けて作られています。
 
@@ -129,4 +237,55 @@ VIPユーザーの端末や重要拠点のAPなど、注視したい対象にだ
 
 Client と Device では見たい観点が違うため、画面も分けています。Client は接続品質やアプリケーション別トラフィック、Device は CPU/メモリ、PoE、ポート状態といった具合です。
 
-byodb-outro-embed.html
+<!-- ============================================================
+     BYODB OUTRO — 記事末尾の「## まとめ」セクションを丸ごと
+     このブロックで置き換える(本文中のまとめ文言と重複するため)。
+     ============================================================ -->
+<style>
+.byodb-outro{
+  background:#121c26;color:#dfe9e6;
+  font-family:"Zen Kaku Gothic New",sans-serif;
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  margin-top:3.5em;
+}
+.byodb-outro-inner{max-width:760px;margin:0 auto;padding:64px 24px 56px}
+.byodb-outro-eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.16em;
+  color:#48cfad;display:block;margin-bottom:8px;font-weight:600;
+}
+.byodb-outro h2{color:#fff;margin:0 0 .6em;font-size:26px;font-weight:900;line-height:1.4}
+.byodb-outro p{margin:0 0 1.5em;line-height:1.95;font-size:16px}
+.byodb-outro strong{font-weight:700}
+.byodb-outro a{color:#48cfad}
+.byodb-outro-links{display:flex;gap:14px;flex-wrap:wrap;margin:1.6em 0}
+.byodb-outro-links a{
+  font-family:"IBM Plex Mono",monospace;font-size:13.5px;
+  border:1px solid rgba(72,207,173,.5);border-radius:10px;
+  padding:12px 20px;text-decoration:none;color:#48cfad;
+  transition:background .2s;display:inline-block;
+}
+.byodb-outro-links a:hover{background:rgba(72,207,173,.12)}
+.byodb-outro-disclaimer{
+  font-size:12.5px;color:#8fa1a8;border-top:1px solid #2a3947;
+  padding-top:22px;margin-top:36px;line-height:1.8;
+}
+</style>
+
+<footer class="byodb-outro">
+  <div class="byodb-outro-inner">
+    <span class="byodb-outro-eyebrow">CONCLUSION</span>
+    <h2>2階建ての運用へ</h2>
+    <p>Custom Dashboard は、ベンダー標準ダッシュボードの代替ではありません。その上に乗る「自分専用の視点」です。</p>
+    <p>土台として Vendor Cloud が telemetry を集約・正規化し、Vendor 独自の AI Agent が分析と最適化を行い、その結果をAPIで外部に提供する。BYODBはその上に、運用者が自分の見たいものだけを最短距離で見る画面を作る。AI がある今、この2階建ての構成は現実的なコストで手が届くようになりました。</p>
+    <p>あなたなら、まず何を見る画面から作りますか。</p>
+    <div class="byodb-outro-links">
+      <a href="https://www.youtube.com/playlist?list=PLQA3RWvztKO8">▶ YouTube 再生リスト (全7本)</a>
+      <a href="https://github.com/kshimonoj/multi-network-dashboard">⌥ GitHub — multi-network-dashboard</a>
+      <a href="https://github.com/kshimonoj/central-mist-webhook-to-google-sheets">⌥ GitHub — Webhook to Google Sheets</a>
+    </div>
+    <p class="byodb-outro-disclaimer">動画・記事内のサイト名、IPアドレス、MACアドレス等はすべてラボ/検証環境のものです。本記事は個人の技術検証であり、HPE社の公式見解や製品サポートを示すものではありません。</p>
+  </div>
+</footer>
+
