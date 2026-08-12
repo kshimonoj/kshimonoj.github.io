@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "Bring Your Own Dashboard (BYODB) — 自分の視点を持ち込むネットワーク運用"
+title: Bring Your Own Dashboard (BYODB) — 自分の視点を持ち込むネットワーク運用
 date: 2026-08-12
 category: ai
-repo: kshimonoj/multi-network-dashboard
+repo: |
+  https://github.com/kshimonoj/multi-network-dashboard
 ---
 
 <!-- ============================================================
