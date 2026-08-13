@@ -1,0 +1,26 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<main class="main main-page">
+  <div class="page-head">
+    <h1>Projects</h1>
+    <p class="page-desc">作ったもの・作っているものの一覧です。</p>
+  </div>
+
+  <div class="project-grid">
+    {% for project in site.data.projects %}
+    <a class="project-card" href="{{ project.url }}" target="_blank" rel="noopener">
+      <p class="card-title">{{ project.name }}</p>
+      <p class="card-desc">{{ project.desc }}</p>
+      <div class="card-tech">
+        {% for t in project.tech %}
+        <span class="tech-badge">{{ t }}</span>
+        {% endfor %}
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+</main>

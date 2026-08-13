@@ -24,25 +24,29 @@
 <body>
   <nav class="site-nav">
     <div class="nav-inner">
-      <a href="{{ '/' | relative_url }}" class="nav-logo">kshimonoj</a>
-      <div class="nav-links">
-        <a href="{{ '/#projects' | relative_url }}">プロジェクト</a>
-        <a href="{{ '/blog' | relative_url }}">ブログ</a>
-        <a href="https://github.com/kshimonoj" target="_blank" rel="noopener">
-          GitHub ↗
-        </a>
+      <a href="{{ '/' | relative_url }}" class="nav-brand">
+        {% include k-mark.svg %}
+        <span class="nav-brandname">Keita Shimono</span>
+      </a>
+      <div class="nav-right">
+        <a href="{{ '/projects' | relative_url }}">Projects</a>
+        <a href="{{ '/blog' | relative_url }}">Blog</a>
+        <a href="https://github.com/kshimonoj" target="_blank" rel="noopener">GitHub ↗</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="テーマを切り替える">
+          <span aria-hidden="true">◐</span>
+        </button>
       </div>
     </div>
   </nav>
 
-  <main>
-    {{ content }}
-  </main>
+  {{ content }}
 
   <footer class="site-footer">
     <p>© 2026 Keita Shimono ·
       <a href="https://github.com/kshimonoj">github.com/kshimonoj</a>
     </p>
   </footer>
+
+  <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
 </body>
 </html>
