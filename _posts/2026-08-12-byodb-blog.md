@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bring Your Own Dashboard (BYODB) — 自分の視点を持ち込むネットワーク運用
-date: 2026-08-12
+date: 2026-08-13
 category: ai
 repo: |
   https://github.com/kshimonoj/multi-network-dashboard
@@ -238,6 +238,14 @@ VIPユーザーの端末や重要拠点のAPなど、注視したい対象にだ
 
 Client と Device では見たい観点が違うため、画面も分けています。Client は接続品質やアプリケーション別トラフィック、Device は CPU/メモリ、PoE、ポート状態といった具合です。
 
+## もうひとつのBYODB — ログの長期保存に振り切る
+
+ここまで紹介したBYODBは、AIエージェントによる調査やナレッジ蓄積が主役でした。ですが、BYODBの形は一つではありません。
+
+もうひとつの実例が [Mist RF Dashboard](https://kshimonoj.github.io/blog/2026/07/17/mist-rf-dashboard/) です。こちらはAIをほとんど使わない代わりに、**ログをきっちり長期間保存できる仕組み**に振り切っています。トラブルが起きたときに、後から事象を時系列で追いかけやすくすることを重視した作りです。
+
+> 同じ「BYODB」という考え方でも、AIによる分析に寄せるか、生データの保存・追跡性に寄せるかで、まったく違う形になる。どちらが正しいというより、**何を優先したいかで作りは変わる**、という一例です。
+
 <!-- ============================================================
      BYODB OUTRO — 記事末尾の「## まとめ」セクションを丸ごと
      このブロックで置き換える(本文中のまとめ文言と重複するため)。
@@ -285,8 +293,11 @@ Client と Device では見たい観点が違うため、画面も分けてい�
       <a href="https://www.youtube.com/playlist?list=PLQA3RWvztKO8">▶ YouTube 再生リスト (全7本)</a>
       <a href="https://github.com/kshimonoj/multi-network-dashboard">⌥ GitHub — multi-network-dashboard</a>
       <a href="https://github.com/kshimonoj/central-mist-webhook-to-google-sheets">⌥ GitHub — Webhook to Google Sheets</a>
+      <a href="https://kshimonoj.github.io/blog/2026/07/17/mist-rf-dashboard/">◆ もうひとつのBYODB — Mist RF Dashboard</a>
     </div>
     <p class="byodb-outro-disclaimer">動画・記事内のサイト名、IPアドレス、MACアドレス等はすべてラボ/検証環境のものです。本記事は個人の技術検証であり、HPE社の公式見解や製品サポートを示すものではありません。</p>
   </div>
 </footer>
+
+
 
