@@ -33,7 +33,7 @@
       if (x < -2 || x > w + 2 || y < -2 || y > h + 2) continue;
       ctx.fillStyle = dark
         ? 'rgba(72,207,173,' + (0.04 + b * 0.30) + ')'
-        : 'rgba(26,156,126,' + (0.03 + b * 0.22) + ')';
+        : 'rgba(26,156,126,' + (0.05 + b * 0.38) + ')';
       ctx.beginPath();
       ctx.arc(x, y, 0.7 + b * 1.1, 0, Math.PI * 2);
       ctx.fill();
