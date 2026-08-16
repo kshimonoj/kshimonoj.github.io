@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Bring Your Own Dashboard (BYODB) — 自分の視点を持ち込むネットワーク運用
-date: 2026-08-13
+date: 2026-08-12
 category: ai
 repo: |
   https://github.com/kshimonoj/multi-network-dashboard
@@ -126,7 +126,7 @@ Network Device の Cloud Management Dashboard は、多くの場合「最大公�
 
 これを、自分の端末を持ち込むBYOD (Bring Your Own Device) になぞらえて、**Bring Your Own Dashboard — BYODB** と呼ぶことにします。ベンダーの画面だけを見るのではなく、自分たちの運用に合わせた「自分の視点」を持ち込む、という考え方です。
 
-## ベンダーのダッシュボードは不要になるのか
+## **ベンダーのダッシュボードは不要になるのか**
 
 答えは **No** です。若干のポジショントークもありますが、客観的に見ても同じ答えだと思います。むしろカスタムダッシュボードを作る時代だからこそ、ベンダー標準ダッシュボードの重要性は残ります。
 
@@ -148,7 +148,7 @@ Device > Vendor Cloud > Custom Dashboard
 
 じゃあBYODBって実際どんな感じになるの? という疑問に答えるために、あくまで一例として作ってみました。以下、今回作成したBYODBのアーキテクチャと7本の動画で紹介します。
 
-## データの取得経路 — API と Webhook の2系統
+## **データの取得経路 — API と Webhook の2系統**
 
 データの取得経路は、大きく **API** と **Webhook** の2系統に分かれます。(Streaming API はオプション)
 
@@ -168,7 +168,7 @@ Central だけの機能です。APのステータスや Event、Audit Log など
 
 ![byodb-cloud-communication](/assets/images/byodb-cloud-communication.png)
 
-## BYODBの中身 — 3層構造 + ループ
+## **BYODBの中身 — 3層構造 + ループ**
 
 中の作りは、あくまで一例ですが3階層に分けました。
 
@@ -238,11 +238,13 @@ VIPユーザーの端末や重要拠点のAPなど、注視したい対象にだ
 
 Client と Device では見たい観点が違うため、画面も分けています。Client は接続品質やアプリケーション別トラフィック、Device は CPU/メモリ、PoE、ポート状態といった具合です。
 
-## もうひとつのBYODB — ログの長期保存に振り切る
+## **もうひとつのBYODB — ログの長期保存に振り切る**
 
 ここまで紹介したBYODBは、AIエージェントによる調査やナレッジ蓄積が主役でした。ですが、BYODBの形は一つではありません。
 
 もうひとつの実例が [Mist RF Dashboard](https://kshimonoj.github.io/blog/2026/07/17/mist-rf-dashboard/) です。こちらはAIをほとんど使わない代わりに、**ログをきっちり長期間保存できる仕組み**に振り切っています。トラブルが起きたときに、後から事象を時系列で追いかけやすくすることを重視した作りです。
+
+![byodb-mist-rf-dashboard](/assets/images/byodb-mist-rf-dashboard.png)
 
 > 同じ「BYODB」という考え方でも、AIによる分析に寄せるか、生データの保存・追跡性に寄せるかで、まったく違う形になる。どちらが正しいというより、**何を優先したいかで作りは変わる**、という一例です。
 
