@@ -36,3 +36,15 @@
   url: https://github.com/kshimonoj/aruba-dashboard
   icon: 📡
   icon_class: icon-mcp
+- name: Wi-Fi iperf3 コントローラー
+  desc: 複数台のWi-Fi端末に対しiperf3スループットテストをブラウザから一括実行できるDocker製ツール。Mac/Windows/Android向けAgentと連携し、結果をCSVやPDFで出力できる。
+  tech: [Python, Docker, iperf3, HTML/CSS, HTTP API]
+  url: https://github.com/kshimonoj/iperf-controller
+  icon: 📶
+  icon_class: icon-wifi
+- name: マルチネットワーク統合ダッシュボード
+  desc: HPE Aruba Central と Juniper Mist を横断して監視できるセルフホスト型ダッシュボード。自然言語の問い合わせにMCP経由のClaude CLIが答え、Webhookログやストリーミングイベントも一画面に集約する。
+  tech: [TypeScript, Claude CLI / MCP, Docker, Leaflet, WebSocket]
+  url: https://github.com/kshimonoj/multi-network-dashboard
+  icon: 🌐
+  icon_class: icon-mcp
