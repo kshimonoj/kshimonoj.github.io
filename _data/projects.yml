@@ -1,7 +1,7 @@
 # このファイルは Corstack の GitHub Blog > プロジェクト から生成されます
 
 - name: Wi-Fi Analyzer
-  desc: 'テスト: コロンと#ハッシュを含む説明文。"クォート"も含む。'
+  desc: Mist / Aruba Central対応のAndroidサイトサーベイアプリ。フロアマップ・ヒートマップ・GPS記録に対応。
   tech: [Android, Kotlin, Mist API]
   url: https://github.com/kshimonoj/wifi-analyzer-mist-central
   icon: 📶
