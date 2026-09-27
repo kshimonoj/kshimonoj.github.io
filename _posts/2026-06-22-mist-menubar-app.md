@@ -17,7 +17,7 @@ Mistの大きな特徴の1つにAPIで全ての情報が取れる、といった
 ![menubar-app-2-ezgif.com-gif-maker](/assets/images/menubar-app-2-ezgif.com-gif-maker.gif)
 
 ソースはGithubをご覧ください。
-そこにもありますが、以下から最新のdmgファイルをダウンロードして誰でも利用できます。
+そこにもありますが、以下から最新のdmgファイルをダウンロードして誰でも利用できます。<br>
 [Mist Menubar App](https://github.com/kshimonoj/mist-menubar-app/releases)
 
 一点注意が必要で、自作アプリで未登録なので、インストール後以下のコマンドを入力する必要があります。
