@@ -1,5 +1,5 @@
 ---
-category: app
+category: wifi
 layout: post
 title: "Wi-Fiサーベイツールを自分で作った — Androidで測って、ブラウザで分析する"
 date: 2026-09-27
@@ -54,6 +54,6 @@ ZIPをアップロードするだけで、以下が出る。
 
 ## ソース
 
-Androidアプリと分析ツールの両方を置いてります。セットアップ手順はREADMEを参照して下さい。
+Androidアプリと分析ツールの両方を置いています。セットアップ手順はREADMEを参照して下さい。
 [日本語README](https://github.com/kshimonoj/wifi-analyzer-mist-central/blob/main/README.ja.md)
 [Android App Release](https://github.com/kshimonoj/wifi-analyzer-mist-central/releases)
