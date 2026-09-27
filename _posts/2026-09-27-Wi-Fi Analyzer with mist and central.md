@@ -54,6 +54,6 @@ ZIPをアップロードするだけで、以下が出る。
 
 ## ソース
 
-Androidアプリと分析ツールの両方を置いています。セットアップ手順はREADMEを参照して下さい。
-[日本語README](https://github.com/kshimonoj/wifi-analyzer-mist-central/blob/main/README.ja.md)
+Androidアプリと分析ツールの両方を置いています。セットアップ手順はREADMEを参照して下さい。<br>
+[日本語README](https://github.com/kshimonoj/wifi-analyzer-mist-central/blob/main/README.ja.md)<br>
 [Android App Release](https://github.com/kshimonoj/wifi-analyzer-mist-central/releases)
